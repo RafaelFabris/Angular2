@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+//Module Interface
 import { FoodList } from '../module/food-list';
 
 @Injectable({
@@ -9,6 +10,12 @@ import { FoodList } from '../module/food-list';
 export class FoodListService {
 
   public emitEvent = new EventEmitter();
+
+  private HttpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  };
 
   //http://localhost:3000/list-food
   private url: string = "http://localhost:3000/";
